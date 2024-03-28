@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+
+:root {
+  background-color: rgb(29, 29, 29);
+  color: white;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+}
+.container {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 660px;
+  margin-inline: auto;
+}
+.title {
+  text-align: center;
+  font-size: 5rem;
+  font-family: "Pacifico", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+.info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card-grid {
+  user-select: none;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  width: max-content;
+  margin-inline: auto;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  width: 150px;
+  aspect-ratio: 1/1;
+  border: 2px solid white;
+  color: transparent;
+  transition: transform 0.2s ease-in-out;
+  transform-style: preserve-3d;
+}
+.card:hover {
+  cursor: pointer;
+}
+.front {
+  backface-visibility: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url("./pictures/front.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  transform: rotateY(0deg);
+  transition: 0.2s ease-in-out;
+}
+.back {
+  transform: rotateY(-180deg);
+  top: 0;
+  left: 0;
+  backface-visibility: hidden;
+  position: absolute;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  object-position: center;
+}
+
+.active {
+  transform: rotateY(180deg);
+  color: inherit;
+}
+
+.flips {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.reset {
+  padding: 10px;
+  border: 2px solid white;
+  font-size: 2rem;
+  color: inherit;
+  background: transparent;
+  width: max-content;
+  transition: 0.2s ease-in-out;
+}
+.reset:hover {
+  cursor: pointer;
+  background: rgb(95, 88, 76);
+}
